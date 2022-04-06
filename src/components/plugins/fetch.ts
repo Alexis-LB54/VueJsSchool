@@ -16,7 +16,7 @@ export default async function fetchLogin(user: User) {
     .catch();
     console.log("utilisateur", user, "token", response);
 
-    let token = response;
+    let token = response.token;
     let decoded = jwt_decode(token);
     console.log("token décodé", decoded);
 
