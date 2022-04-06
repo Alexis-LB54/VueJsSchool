@@ -6,37 +6,20 @@
 
 <script setup>
 import Login from "../../components/forms/Login.vue";
-import { useRouter, useRoute } from "vue-router";
+import { ref } from "@vue/reactivity";
+import fetchLogin from "../../components/plugins/fetch";
+import { useUserStore } from "../../stores/token"
 
-const router = useRoute();
+const user = ref({
+  username: "",
+  password: "",
+});
+const tokenStore = useUserStore();
 
-async function FormSubmit(user) {
-  let datas = {
-    username: user.username,
-    password: user.password,
-  };
-
-  console.log(datas);
-
-  let response = await fetch("https://apibus.quidam.re/api/login_check", {
-    method: "POST",
-    body: JSON.stringify(datas),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((r) => r.json())
-    .catch();
-
-  if (response.token && response.refresh_token) {
-    localStorage.setItem("token", response.token);
-    localStorage.setItem("refresh_token", response.refresh_token);
-
-    console.log(response);
-  }
-}
-
-
+const FormSubmit = () => {
+  fetchLogin(user.value).then((response) => tokenStore.token = response.token);
+  fetchLogin(user.value).then((response) => tokenStore.refresh_token = response.refresh_token);
+};
 </script>
 
 

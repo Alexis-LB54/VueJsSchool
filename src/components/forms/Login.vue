@@ -3,7 +3,7 @@
     <form @submit.prevent="$emit('form-submit', user)">
 
       <label for="username">username</label>
-      <input type="email" v-model="user.username" id="username"/>
+      <input type="text" v-model="user.username" id="username"/>
 
       <label for="password">password</label>
       <input type="password" v-model="user.password" id="password"/>
