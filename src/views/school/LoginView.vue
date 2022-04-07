@@ -16,6 +16,7 @@
 import { ref } from "@vue/reactivity";
 import fetchLogin from "../../components/plugins/fetch";
 import { useTokenStore } from "../../stores/token";
+import { useRoute, useRouter } from "vue-router";
 
 const user = ref({
   username: "",
@@ -23,14 +24,17 @@ const user = ref({
 });
 
 const tokenStore = useTokenStore();
+const router = useRouter();
 
 const FormSubmit = () => {
-  fetchLogin(user.value).then(
-    (response) => (tokenStore.token = response.token)
-  );
-  fetchLogin(user.value).then(
-    (response) => (tokenStore.refresh_token = response.refresh_token)
-  );
+  fetchLogin(user.value).then(([response, decoded]) => {
+    tokenStore.token = response.token;
+    tokenStore.refresh_token = response.refresh_token;
+    tokenStore.roles = decoded.roles;
+    if (tokenStore.roles.indexOf("ROLE_ADMIN")) {
+      router.push("/user")
+    }
+  });
 };
 </script>
 
