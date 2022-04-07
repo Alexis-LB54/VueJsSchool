@@ -34,12 +34,30 @@ const FormSubmit = () => {
     tokenStore.roles = decoded.roles;
     // console.log("a la recherche de roles", tokenStore.roles);
     // console.log(tokenStore.roles.indexOf("ROLE_TUTU"));
+
     let error = "non autorisé";
-    if (tokenStore.roles.indexOf("ROLE_DIRECTEUR") !== -1) {
-      router.push("/director");
-    } else {
-      alert(error);
-    }
+    // if (tokenStore.roles.indexOf("ROLE_DIRECTEUR") !== -1) {
+    //   router.push("/director");
+    // } else {
+    //   alert(error);
+    // }
+switch (tokenStore.roles) {
+    case tokenStore.roles.indexOf("ROLE_DIRECTEUR") !== -1:
+        console.log(tokenStore.roles.indexOf("ROLE_DIRECTEUR") !== -1);
+        router.push("/director");
+        break;
+    case tokenStore.roles.indexOf("ROLE_PROF") !== -1:
+        console.log(tokenStore.roles.indexOf("ROLE_PROF") !== -1);
+        router.push("/prof");
+        break;
+    case tokenStore.roles.indexOf("ROLE_ELEVE") !== -1:
+        console.log(tokenStore.roles.indexOf("ROLE_ELEVE") !== -1);
+        router.push("/eleve");
+        break;
+    default:
+        alert(error);
+}
+
   });
 };
 </script>

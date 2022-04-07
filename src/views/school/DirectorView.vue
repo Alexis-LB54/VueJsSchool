@@ -1,7 +1,7 @@
 <template>
   <div>
     <form>
-      <label for="username">toto</label>
+      <label for="username">Formulaire du Directeur</label>
       <input type="text" id="username" />
 
       <label for="password">titi</label>
@@ -17,5 +17,7 @@
 </script>
 
 <style scoped>
-
+label {
+  color: blue;
+}
 </style>

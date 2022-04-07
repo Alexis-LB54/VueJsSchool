@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const useUserStore = defineStore({
+export const useDirectorStore = defineStore({
   id: 'counter',
   state: () => ({
     counter: 0
