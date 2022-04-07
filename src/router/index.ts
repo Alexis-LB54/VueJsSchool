@@ -23,9 +23,19 @@ const router = createRouter({
       component: () => import('../views/school/LoginView.vue')
     },
     {
-      path: '/user',
-      name: 'user',
-      component: () => import('../views/school/UserView.vue')
+      path: '/director',
+      name: 'director',
+      component: () => import('../views/school/DirectorView.vue')
+    },
+    {
+      path: '/eleve',
+      name: 'eleve',
+      component: () => import('../views/school/EleveView.vue')
+    },
+    {
+      path: '/prof',
+      name: 'prof',
+      component: () => import('../views/school/ProfView.vue')
     },
   ]
 })

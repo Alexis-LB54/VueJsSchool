@@ -17,6 +17,7 @@ import { ref } from "@vue/reactivity";
 import fetchLogin from "../../components/plugins/fetch";
 import { useTokenStore } from "../../stores/token";
 import { useRoute, useRouter } from "vue-router";
+import { onMounted } from "@vue/runtime-core";
 
 const user = ref({
   username: "",
@@ -31,8 +32,13 @@ const FormSubmit = () => {
     tokenStore.token = response.token;
     tokenStore.refresh_token = response.refresh_token;
     tokenStore.roles = decoded.roles;
-    if (tokenStore.roles.indexOf("ROLE_ADMIN")) {
-      router.push("/user")
+    // console.log("a la recherche de roles", tokenStore.roles);
+    // console.log(tokenStore.roles.indexOf("ROLE_TUTU"));
+    let error = "non autorisé";
+    if (tokenStore.roles.indexOf("ROLE_DIRECTEUR") !== -1) {
+      router.push("/director");
+    } else {
+      alert(error);
     }
   });
 };
