@@ -17,7 +17,6 @@ import { ref } from "@vue/reactivity";
 import fetchLogin from "../../components/plugins/fetch";
 import { useTokenStore } from "../../stores/token";
 import { useRoute, useRouter } from "vue-router";
-import { onMounted } from "@vue/runtime-core";
 
 const user = ref({
   username: "",
