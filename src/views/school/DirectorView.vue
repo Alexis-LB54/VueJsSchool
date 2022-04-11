@@ -1,23 +1,18 @@
 <template>
   <div>
-    <form>
-      <label for="username">Formulaire du Directeur</label>
-      <input type="text" id="username" />
-
-      <label for="password">titi</label>
-      <input type="password" id="password" />
-
-      <input type="submit" value="Se connecter" />
-    </form>
+      <router-link
+        :to="{ name: 'addUser' }"
+      >
+        <button class="btn btn-primary">Ajouter un professeur</button>
+      </router-link>
   </div>
 </template>
 
 <script setup lang="ts">
 
+
 </script>
 
 <style scoped>
-label {
-  color: blue;
-}
+
 </style>

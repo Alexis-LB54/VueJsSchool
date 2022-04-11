@@ -2,7 +2,7 @@
 import type { User } from "../types/userType";
 import { useTokenStore } from "../../stores/token";
 import jwt_decode from "jwt-decode";
-const userStore = useTokenStore();
+// const userStore = useTokenStore();
 
 export default async function fetchLogin(user: User) {
   let response = await fetch("http://127.0.0.1:8000/api/login_check", {

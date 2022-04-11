@@ -31,11 +31,12 @@ const FormSubmit = () => {
     tokenStore.token = response.token;
     tokenStore.refresh_token = response.refresh_token;
     tokenStore.roles = decoded.roles;
+
     // console.log("a la recherche de roles", tokenStore.roles);
     // console.log(tokenStore.roles.indexOf("ROLE_DIRECTEUR"));
 
     let error = "non autorisé";
-    let tableauRoles = tokenStore.roles
+    let tableauRoles = tokenStore.roles;
     switch (true) {
       case tableauRoles.indexOf("ROLE_DIRECTEUR") !== -1:
         console.log("role de la personne");

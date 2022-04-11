@@ -1,16 +1,17 @@
 import { defineStore } from 'pinia'
 
 export const useClasseStore = defineStore({
-  id: 'counter',
+  id: 'classe',
   state: () => ({
-    counter: 0
+    classes: [
+    ],
   }),
+  persist: true,
   getters: {
-    doubleCount: (state) => state.counter * 2
+    getClasses: (state) => state.classes,
   },
   actions: {
     increment() {
-      this.counter++
-    }
-  }
+    },
+  },
 })
