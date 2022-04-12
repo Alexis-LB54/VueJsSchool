@@ -71,6 +71,11 @@ const router = createRouter({
       name: 'showEleveByBoss',
       component: () => import('../components/school/showEleveByBoss.vue')
     },
+    {
+      path: '/addNote',
+      name: 'addNote',
+      component: () => import('../components/school/addNote.vue')
+    },
   ]
 })
 
