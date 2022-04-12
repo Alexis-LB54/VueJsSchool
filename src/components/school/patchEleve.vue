@@ -26,6 +26,9 @@
       <input type="submit" value="Approuver la gestion" />
     </form>
   </div>
+  <router-link :to="{ name: 'director' }">
+    <button class="btn btn-primary">Retour au Menu Principal</button>
+  </router-link>
 </template>
 
 <script setup>
