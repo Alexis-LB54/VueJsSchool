@@ -4,18 +4,28 @@
 
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
-import { useTokenStore } from "../../stores/token"
+import { useTokenStore } from "../../stores/token";
+import { useEleveStore } from "../../stores/EleveStore";
+import { useMatiereStore } from "../../stores/MatiereStore";
+import { useProfStore } from "../../stores/ProfStore";
+import { useClasseStore } from "../../stores/ClasseStore";
 
-const tokenStore = useTokenStore();
 const router = useRouter();
+const tokenStore = useTokenStore();
+const eleveStore = useEleveStore();
+const matiereStore = useMatiereStore();
+const profStore = useProfStore();
+const classeStore = useClasseStore();
 
 function unSetStore() {
-    tokenStore.$reset();
-    router.push("/login")
+  tokenStore.$reset();
+  eleveStore.$reset();
+  matiereStore.$reset();
+  profStore.$reset();
+  classeStore.$reset();
+  router.push("/login");
 }
-
 </script>
 
 <style>
-
 </style>

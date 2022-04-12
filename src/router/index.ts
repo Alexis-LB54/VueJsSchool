@@ -81,6 +81,11 @@ const router = createRouter({
       name: 'patchEleve',
       component: () => import('../components/school/patchEleve.vue')
     },
+    {
+      path: '/showMyClass',
+      name: 'showMyClass',
+      component: () => import('../components/school/showMyClass.vue')
+    },
   ]
 })
 
