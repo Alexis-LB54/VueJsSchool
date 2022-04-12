@@ -51,6 +51,21 @@ const router = createRouter({
       name: 'addUser',
       component: () => import('../components/school/addUser.vue')
     },
+    {
+      path: '/deleteUser',
+      name: 'deleteUser',
+      component: () => import('../components/school/deleteUser.vue')
+    },
+    {
+      path: '/addEleve',
+      name: 'addEleve',
+      component: () => import('../components/school/addEleve.vue')
+    },
+    {
+      path: '/deleteEleve',
+      name: 'deleteEleve',
+      component: () => import('../components/school/deleteEleve.vue')
+    },
   ]
 })
 

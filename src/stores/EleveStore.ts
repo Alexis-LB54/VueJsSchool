@@ -1,16 +1,17 @@
 import { defineStore } from 'pinia'
 
 export const useEleveStore = defineStore({
-  id: 'counter',
+  id: 'eleve',
   state: () => ({
-    counter: 0
+    eleve: [  
+    ],
   }),
+  persist: true,
   getters: {
-    doubleCount: (state) => state.counter * 2
+    getEleve: (state) => state.eleve
   },
   actions: {
     increment() {
-      this.counter++
     }
   }
 })

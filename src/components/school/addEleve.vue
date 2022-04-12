@@ -1,26 +1,20 @@
 <template>
   <div>
     <form @submit.prevent="FormSubmit">
-      <label for="username">username du professeur</label>
-      <input type="text" v-model="prof.username" id="username" />
+      <label for="username">username de l'élève</label>
+      <input type="text" v-model="eleve.username" id="username" />
 
-      <label for="password">password du professeur</label>
-      <input type="password" v-model="prof.password" id="password" />
+      <label for="password">password de l'élève</label>
+      <input type="password" v-model="eleve.password" id="password" />
 
       <label for="firstname">Prénom</label>
-      <input type="text" v-model="prof.firstname" id="firstname" />
+      <input type="text" v-model="eleve.firstname" id="firstname" />
 
       <label for="lastname">Nom</label>
-      <input type="text" v-model="prof.lastname" id="lastname" />
-
-      <label for="ancienneté">Ancienneté</label>
-      <input type="text" v-model="prof.ancienneté" id="ancienneté" />
-
-      <label for="salaire">Salaire</label>
-      <input type="number" v-model="prof.salaire" id="salaire" />
+      <input type="text" v-model="eleve.lastname" id="lastname" />
 
       <label for="schoolClass">Classe</label>
-      <select v-model="prof.schoolClass" id="schoolClass">
+      <select v-model="eleve.schoolClass" id="schoolClass">
         <option
           v-for="classe in classeStore.getClasses"
           :key="classe.id"
@@ -30,7 +24,13 @@
         </option>
       </select>
 
-      <input type="submit" value="Ajouter Professeur" />
+      <label for="sexe">sexe</label>
+      <input type="text" v-model="eleve.sexe" id="sexe" />
+
+      <label for="email">email</label>
+      <input type="email" v-model="eleve.email" id="email" />
+
+      <input type="submit" value="Ajouter élève" />
     </form>
   </div>
 </template>
@@ -45,15 +45,15 @@ import { useClasseStore } from "../../stores/ClasseStore";
 const tokenStore = useTokenStore();
 const classeStore = useClasseStore();
 
-const prof = ref({
+const eleve = ref({
   username: "",
   password: "",
-  roles: ["ROLE_PROF"],
+  roles: ["ROLE_ELEVE"],
   firstname: "",
   lastname: "",
-  ancienneté: "",
-  salaire: 0,
   schoolClass: "",
+  sexe: "",
+  email: "",
 });
 
 onMounted(() => {
@@ -62,17 +62,17 @@ onMounted(() => {
 
 
 async function FormSubmit() {
-  let response = await fetch("http://127.0.0.1:8000/api/users", {
+  let response = await fetch("http://127.0.0.1:8000/api/eleves", {
     method: "POST",
     headers: {
       "Content-Type": "application/ld+json",
       Authorization: `Bearer ${tokenStore.token}`,
     },
-    body: JSON.stringify(prof.value),
+    body: JSON.stringify(eleve.value),
   })
     .then((r) => r.json())
     .catch();
-  console.log("user que l'on veut ajouté", response);
+  console.log("eleve que l'on veut ajouté", response);
 }
 </script>
 

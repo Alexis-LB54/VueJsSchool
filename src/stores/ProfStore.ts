@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia'
 
 export const useProfStore = defineStore({
-  id: 'counter',
+  id: 'professeur',
   state: () => ({
-    list: [  
+    prof: [  
     ],
   }),
+  persist: true,
   getters: {
-    getList: (state) => state.list
+    getProf: (state) => state.prof
   },
   actions: {
     increment() {
