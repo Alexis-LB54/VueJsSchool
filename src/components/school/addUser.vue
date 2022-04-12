@@ -33,6 +33,9 @@
       <input type="submit" value="Ajouter Professeur" />
     </form>
   </div>
+  <router-link :to="{ name: 'director' }">
+    <button class="btn btn-primary">Retour au Menu Principal</button>
+  </router-link>
 </template>
 
 <script setup lang="ts">
@@ -59,7 +62,6 @@ const prof = ref({
 onMounted(() => {
   classListe();
 });
-
 
 async function FormSubmit() {
   let response = await fetch("http://127.0.0.1:8000/api/users", {

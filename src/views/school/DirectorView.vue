@@ -12,6 +12,9 @@
     <router-link :to="{ name: 'deleteEleve' }">
       <button class="btn btn-primary">Virer un élève</button>
     </router-link>
+    <router-link :to="{ name: 'showEleveByBoss' }">
+      <button class="btn btn-primary">Voir un élève</button>
+    </router-link>
   </div>
 </template>
 

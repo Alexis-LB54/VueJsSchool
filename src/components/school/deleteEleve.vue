@@ -14,6 +14,9 @@
       <input type="submit" value="Virer l'élève" />
     </form>
   </div>
+  <router-link :to="{ name: 'director' }">
+    <button class="btn btn-primary">Retour au Menu Principal</button>
+  </router-link>
 </template>
 
 <script setup>

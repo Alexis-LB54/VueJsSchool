@@ -1,5 +1,5 @@
 <template>
-    <div>
+  <div>
     <form @submit.prevent="deleteUser">
       <label for="prof">professeur</label>
       <select v-model="prof.id" id="prof">
@@ -13,7 +13,10 @@
       </select>
       <input type="submit" value="Licencier Professeur" />
     </form>
-    </div>
+  </div>
+  <router-link :to="{ name: 'director' }">
+    <button class="btn btn-primary">Retour au Menu Principal</button>
+  </router-link>
 </template>
 
 <script setup>
@@ -35,20 +38,20 @@ const prof = ref({
 });
 
 async function deleteUser() {
-    console.log("id prof viré", prof.value.id);
-    let response = await fetch("http://127.0.0.1:8000" + prof.value.id,{
+  console.log("id prof viré", prof.value.id);
+  let response = await fetch("http://127.0.0.1:8000" + prof.value.id, {
     method: "DELETE",
     headers: {
-        Authorization: `Bearer ${tokenStore.token}`,
-    }
-    }).then((r) => r.json()).catch();
-    console.log("prof licencié", response);
+      Authorization: `Bearer ${tokenStore.token}`,
+    },
+  })
+    .then((r) => r.json())
+    .catch();
+  console.log("prof licencié", response);
 
-    return response;   
+  return response;
 }
-
 </script>
 
 <style scoped>
-
 </style>

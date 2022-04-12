@@ -66,6 +66,11 @@ const router = createRouter({
       name: 'deleteEleve',
       component: () => import('../components/school/deleteEleve.vue')
     },
+    {
+      path: '/showEleveByBoss',
+      name: 'showEleveByBoss',
+      component: () => import('../components/school/showEleveByBoss.vue')
+    },
   ]
 })
 
