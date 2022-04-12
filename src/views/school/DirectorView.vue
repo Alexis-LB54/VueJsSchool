@@ -15,6 +15,9 @@
     <router-link :to="{ name: 'showEleveByBoss' }">
       <button class="btn btn-primary">Voir un élève</button>
     </router-link>
+    <router-link :to="{ name: 'patchEleve' }">
+      <button class="btn btn-primary">Gestion des élèves et des classes</button>
+    </router-link>
   </div>
 </template>
 

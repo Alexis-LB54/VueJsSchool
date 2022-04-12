@@ -76,6 +76,11 @@ const router = createRouter({
       name: 'addNote',
       component: () => import('../components/school/addNote.vue')
     },
+    {
+      path: '/patchEleve',
+      name: 'patchEleve',
+      component: () => import('../components/school/patchEleve.vue')
+    },
   ]
 })
 
