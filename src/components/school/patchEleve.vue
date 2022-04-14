@@ -76,4 +76,11 @@ async function patchEleve() {
 </script>
 
 <style scoped>
+form {
+  background-color: #e5f9ff;
+  padding: 10px;
+  width: 300px;
+  border: 3px solid #49b0ff;
+  border-radius: 5px;
+}
 </style>

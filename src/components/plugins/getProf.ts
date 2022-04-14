@@ -16,6 +16,5 @@ export default async function ProfList() {
     
     profStore.prof = response["hydra:member"].filter((o:{roles:String[]}) => o.roles.includes("ROLE_PROF"));
     
-
     return response;   
 }

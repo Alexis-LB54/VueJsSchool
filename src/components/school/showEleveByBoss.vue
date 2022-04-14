@@ -30,13 +30,13 @@
       </thead>
       <tbody>
         <tr v-for="eleve in tableauFiltre" :key="eleve.id">
-          <th>{{ eleve.id }}</th>
-          <th>{{ eleve.username }}</th>
-          <th>{{ eleve.firstname }}</th>
-          <th>{{ eleve.lastname }}</th>
-          <th>{{ eleve.SchoolClass }}</th>
-          <th>{{ eleve.sexe }}</th>
-          <th>{{ eleve.parents_email }}</th>
+          <td>{{ eleve.id }}</td>
+          <td>{{ eleve.username }}</td>
+          <td>{{ eleve.firstname }}</td>
+          <td>{{ eleve.lastname }}</td>
+          <td>{{ eleve.SchoolClass }}</td>
+          <td>{{ eleve.sexe }}</td>
+          <td>{{ eleve.parents_email }}</td>
         </tr>
       </tbody>
     </table>
@@ -73,5 +73,15 @@ async function FormSubmit() {
 }
 </script>
 
-<style>
+<style scoped>
+table {
+  border: 3px solid #49b0ff;
+  width: 300px;
+  background-color: #e5f9ff;
+}
+td,
+th {
+  border: thin solid #6495ed;
+  width: 300px;
+}
 </style>

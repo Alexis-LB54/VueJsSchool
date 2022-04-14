@@ -78,7 +78,7 @@ async function addNote() {
     "note :",
     note.value.notation,
     "date :",
-    note.value.date,
+    note.value.date
   );
   let response = await fetch("http://127.0.0.1:8000/api/notes", {
     method: "POST",
@@ -94,5 +94,23 @@ async function addNote() {
 }
 </script>
 
-<style>
+<style scoped>
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #e5f9ff;
+  padding: 10px;
+  width: 300px;
+  border: 3px solid #49b0ff;
+  border-radius: 5px;
+}
+
+input {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  margin-left: 5px;
+  box-shadow: 1px 1px 1px #002fff;
+  cursor: pointer;
+}
 </style>
