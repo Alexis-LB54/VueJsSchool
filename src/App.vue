@@ -18,7 +18,7 @@ import Logout from "./components/school/Logout.vue"
       <HelloWorld msg="Bienvenue dans le Groupe Scolaire Augustin" />
 
       <nav>
-        <RouterLink to="/about">A propos de nous</RouterLink>
+        <!-- <RouterLink to="/about">A propos de nous</RouterLink> -->
         <RouterLink to="/login">Connexion</RouterLink>
         <Logout />
       </nav>
