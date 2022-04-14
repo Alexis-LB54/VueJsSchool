@@ -8,7 +8,13 @@ export const useNoteStore = defineStore({
   }),
   persist: true,
   getters: {
-    getNote: (state) => state.note
+    getNote: (state) => state.note,
+    getMoyenne: (state) => {
+      let moyenne = 0;
+      state.note.map( (item : {notation: number}) => {
+        moyenne
+      })
+    },
   },
   actions: {
     increment() {

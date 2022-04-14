@@ -1,21 +1,5 @@
 <template>
   <div>
-    <form @submit.prevent="FormSubmit">
-      <label for="note">Les Notes</label>
-      <select v-model="note.id" id="élève">
-        <option
-          v-for="note in noteStore.getNote"
-          :key="note.id"
-          v-on:value="note['@id']"
-        >
-          {{ note["@id"] }}
-        </option>
-      </select>
-      <input type="submit" value="voir note" />
-    </form>
-  </div>
-
-  <div>
     <table>
       <thead>
         <tr>
@@ -26,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="note in tableauFiltre" :key="note.id">
+        <tr v-for="note in noteStore.getNote" :key="note.id">
           <td>{{ note.id }}</td>
           <td>{{ note.matiere }}</td>
           <td>{{ note.date }}</td>
@@ -56,13 +40,10 @@ onMounted(() => {
   NoteList();
 });
 
-const tableauFiltre = computed(() => {
-  return noteStore.getNote.filter((o) => o["@id"] === note.value.id);
-});
-
 async function FormSubmit() {
   note.value.id;
 }
+
 
 </script>
 

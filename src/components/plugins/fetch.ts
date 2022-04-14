@@ -1,4 +1,3 @@
-
 import type { User } from "../types/userType";
 import { useTokenStore } from "../../stores/token";
 import jwt_decode from "jwt-decode";
