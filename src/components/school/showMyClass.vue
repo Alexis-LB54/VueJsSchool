@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="FormSubmit">
-      <label for="élève">Elvève</label>
+      <label for="élève">Elève</label>
       <select v-model="eleve.id" id="élève">
         <option
           v-for="eleve in eleveStore.getEleve"

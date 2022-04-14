@@ -9,6 +9,7 @@ import { useEleveStore } from "../../stores/EleveStore";
 import { useMatiereStore } from "../../stores/MatiereStore";
 import { useProfStore } from "../../stores/ProfStore";
 import { useClasseStore } from "../../stores/ClasseStore";
+import { useNoteStore } from "../../stores/NoteEleve";
 
 const router = useRouter();
 const tokenStore = useTokenStore();
@@ -16,6 +17,7 @@ const eleveStore = useEleveStore();
 const matiereStore = useMatiereStore();
 const profStore = useProfStore();
 const classeStore = useClasseStore();
+const noteStore = useNoteStore();
 
 function unSetStore() {
   tokenStore.$reset();
@@ -23,6 +25,7 @@ function unSetStore() {
   matiereStore.$reset();
   profStore.$reset();
   classeStore.$reset();
+  noteStore.$reset();
   router.push("/login");
 }
 </script>
