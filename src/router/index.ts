@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import fetchLogin from "../components/plugins/fetch";
-import { useTokenStore } from "../stores/token";
-import { useRoute, useRouter } from "vue-router";
+import isLog, { isDirector, isTeacher, isStudent } from '@/components/plugins/loginCheck';
 
 
 const router = createRouter({
@@ -89,20 +87,27 @@ const router = createRouter({
   ]
 })
 
-// const tokenStore = useTokenStore();
-// const route = useRouter();
-
-// let tableauRoles = tokenStore.roles;
-// route.beforeEach((to, from, next) => {
-//   if (to.name !== "login" && tableauRoles.indexOf("ROLE_DIRECTEUR") !== -1) {
-//     next({ name: "login" });
-//   } else {
-//     if (to.name === "login" && tableauRoles.indexOf("ROLE_DIRECTEUR") == -1) {
-//       next({ name: "itsno" });
-//     }
-
-//     next();
-//   }
-// });
+let arrayTeacherRoute = ['prof', 'addNote', 'showMyClass'];
+let arrayDirectorRoute = ['director', 'addUser', 'deleteUser', 'addEleve', 'deleteEleve', 'showEleveByBoss', 'patchEleve'];
+let arrayStudentRoute = ['eleve']
+router.beforeEach((to, from, next) => {
+  if (to.name !== "login" && !isLog()) {
+    next({ name: "login" });
+  }
+  switch (true) {
+    case arrayTeacherRoute.includes(String(to.name)) && !isTeacher():
+      next({ name: "itsno" });
+      break;
+    case arrayDirectorRoute.includes(String(to.name)) && !isDirector():
+      next({ name: "itsno" });
+      break;
+    case arrayStudentRoute.includes(String(to.name)) && !isStudent():
+      next({ name: "itsno" });
+      break;
+    default:
+      break;
+  }
+  next()
+})
 
 export default router

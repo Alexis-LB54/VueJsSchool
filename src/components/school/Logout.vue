@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { useRoute, useRouter } from "vue-router";
 import { useTokenStore } from "../../stores/token";
 import { useEleveStore } from "../../stores/EleveStore";
