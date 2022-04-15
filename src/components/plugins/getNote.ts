@@ -1,10 +1,10 @@
 import { useTokenStore } from "../../stores/token";
 import { useNoteStore } from "../../stores/NoteEleve";
 
-const tokenStore = useTokenStore();
-const noteStore = useNoteStore();
 
 export default async function NoteList() {
+    const tokenStore = useTokenStore();
+    const noteStore = useNoteStore();
     let response = await fetch("http://127.0.0.1:8000/api/notes",{
     method: "GET",
     headers: {

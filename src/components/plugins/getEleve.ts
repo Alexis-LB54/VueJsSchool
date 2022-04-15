@@ -1,10 +1,10 @@
 import { useTokenStore } from "../../stores/token";
 import { useEleveStore } from "../../stores/EleveStore"
 
-const tokenStore = useTokenStore();
-const eleveStore = useEleveStore();
 
 export default async function EleveList() {
+    const tokenStore = useTokenStore();
+    const eleveStore = useEleveStore();
     let response = await fetch("http://127.0.0.1:8000/api/users",{
     method: "GET",
     headers: {

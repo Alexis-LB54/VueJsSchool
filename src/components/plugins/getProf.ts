@@ -1,10 +1,10 @@
 import { useTokenStore } from "../../stores/token";
 import { useProfStore } from "../../stores/ProfStore"
 
-const tokenStore = useTokenStore();
-const profStore = useProfStore();
 
 export default async function ProfList() {
+    const tokenStore = useTokenStore();
+    const profStore = useProfStore();
     let response = await fetch("http://127.0.0.1:8000/api/users",{
     method: "GET",
     headers: {

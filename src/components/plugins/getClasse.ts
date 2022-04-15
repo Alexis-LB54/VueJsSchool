@@ -1,10 +1,10 @@
 import { useTokenStore } from "../../stores/token";
 import { useClasseStore } from "../../stores/ClasseStore";
 
-const tokenStore = useTokenStore();
-const classeStore = useClasseStore();
 
 export default async function classList() {
+    const tokenStore = useTokenStore();
+    const classeStore = useClasseStore();
     let response = await fetch("http://127.0.0.1:8000/api/school_classes",{
     method: "GET",
     headers: {

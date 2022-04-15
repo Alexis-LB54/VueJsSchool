@@ -1,3 +1,4 @@
+import NoteList from '@/components/plugins/getNote';
 import { defineStore } from 'pinia'
 
 export const useNoteStore = defineStore({
@@ -10,10 +11,13 @@ export const useNoteStore = defineStore({
   getters: {
     getNote: (state) => state.note,
     getMoyenne: (state) => {
-      let moyenne = 0;
+      let total = 0;
+      let moyenne =0;
       state.note.map( (item : {notation: number}) => {
-        moyenne
+        total += item.notation
+        
       })
+      return total/state.note.length
     },
   },
   actions: {
