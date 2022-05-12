@@ -61,7 +61,7 @@ async function patchEleve() {
     "nouvelle classe :",
     eleve.value.schoolClass
   );
-  let response = await fetch("http://127.0.0.1:8000" + eleve.value.eleve, {
+  let response = await fetch("http://127.0.0.1:81" + eleve.value.eleve, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/merge-patch+json",

@@ -5,7 +5,7 @@ import { useEleveStore } from "../../stores/EleveStore"
 export default async function EleveList() {
     const tokenStore = useTokenStore();
     const eleveStore = useEleveStore();
-    let response = await fetch("http://127.0.0.1:8000/api/users",{
+    let response = await fetch("http://127.0.0.1:81/api/users",{
     method: "GET",
     headers: {
         Authorization: `Bearer ${tokenStore.token}`,

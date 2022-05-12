@@ -5,7 +5,7 @@ import { useProfStore } from "../../stores/ProfStore"
 export default async function ProfList() {
     const tokenStore = useTokenStore();
     const profStore = useProfStore();
-    let response = await fetch("http://127.0.0.1:8000/api/users",{
+    let response = await fetch("http://127.0.0.1:81/api/users",{
     method: "GET",
     headers: {
         Authorization: `Bearer ${tokenStore.token}`,

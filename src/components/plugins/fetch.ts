@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 // const userStore = useTokenStore();
 
 export default async function fetchLogin(user: User) {
-  let response = await fetch("http://127.0.0.1:8000/api/login_check", {
+  let response = await fetch("http://127.0.0.1:81/api/login_check", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

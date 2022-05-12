@@ -5,7 +5,7 @@ import { useMatiereStore } from "../../stores/MatiereStore"
 export default async function MatiereList() {
     const tokenStore = useTokenStore();
     const matiereStore = useMatiereStore();
-    let response = await fetch("http://127.0.0.1:8000/api/matieres",{
+    let response = await fetch("http://127.0.0.1:81/api/matieres",{
     method: "GET",
     headers: {
         Authorization: `Bearer ${tokenStore.token}`,

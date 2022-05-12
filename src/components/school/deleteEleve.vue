@@ -39,7 +39,7 @@ const eleve = ref({
 
 async function deleteUser() {
   console.log("id prof viré", eleve.value.id);
-  let response = await fetch("http://127.0.0.1:8000" + eleve.value.id, {
+  let response = await fetch("http://127.0.0.1:81" + eleve.value.id, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${tokenStore.token}`,
