@@ -5,7 +5,7 @@ import { useNoteStore } from "../../stores/NoteEleve";
 export default async function NoteList() {
     const tokenStore = useTokenStore();
     const noteStore = useNoteStore();
-    let response = await fetch("http://127.0.0.1:81/api/notes",{
+    let response = await fetch("http://127.0.0.1:8001/api/notes",{
     method: "GET",
     headers: {
         Authorization: `Bearer ${tokenStore.token}`,
